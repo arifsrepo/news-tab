@@ -7,6 +7,7 @@ const useMainhooks = () => {
     const [toggleFeedback, setToggleFeedback] = useState(false);
     const [pagination, setPagination] = useState(0);
     const [range, setRange] = useState(0);
+    const [newsPaper, setNewsPaper] = useState('https://abcnews.go.com/');
 
     useEffect(()=>{
         setLoading(true)
@@ -25,13 +26,15 @@ const useMainhooks = () => {
         setUrl,
         setNews,
         range,
+        newsPaper,
+        setNewsPaper,
         setRange,
         loading,
         pagination,
         setLoading,
         setPagination,
         toggleFeedback,
-        setToggleFeedback,
+        setToggleFeedback
     }
 }
 

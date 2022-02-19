@@ -10,10 +10,10 @@ import useMainhooks from '../hooks/useMainhooks';
 
 const Main = (props) => {
     const toggle = props.toggle;
-    const { news, setUrl, setNews, loading, pagination, setPagination, range, setRange } = useMainhooks();
+    const { news, setUrl, setNews, loading, pagination, setPagination, range, setRange, newsPaper } = useMainhooks();
     const [limit, setLimit] = useState(5);
     // const [pagination, setPagination] = useState(0);
-    const [show, setShow] = useState(false);
+    // const [show, setShow] = useState(false);
 
     const handleDelete = (idvalue) => {
         const newArrey = [...news]
@@ -48,13 +48,13 @@ const Main = (props) => {
         }
     }
 
-    const handleModal = e => {
-        if(show){
-            setShow(false)
-        } else{
-            setShow(true)
-        }
-    }
+    // const handleModal = e => {
+    //     if(show){
+    //         setShow(false)
+    //     } else{
+    //         setShow(true)
+    //     }
+    // }
 
 
     if(loading){
@@ -85,7 +85,7 @@ const Main = (props) => {
             {
                 news.reduce((result, singleNews, i) => {
                     if (i >= range && i <= range + limit-1) { 
-                    const row = (<NewsCard handleModal={handleModal} toggle={toggle} key={i} handleDelete={handleDelete} news={singleNews} />);
+                    const row = (<NewsCard toggle={toggle} key={i} handleDelete={handleDelete} news={singleNews} />);
                     result.push(row);
                     }
                     return result;
@@ -99,15 +99,15 @@ const Main = (props) => {
             <span className="dot">{parseInt(pagination+1)}</span>
             <FontAwesomeIcon className={pagination===news?.length-limit?'pagination_icon_false':''} onClick={increaseRight} icon={faAngleRight} />
         </div>
-            <Modal
+            {/* <Modal
                 show={show}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 onHide={handleModal}
                 centered
                 >
-                <iframe className="ifrm_style" title="News Opened" src="https://www.bd-pratidin.com/" frameborder="1"></iframe>
-            </Modal>
+                <iframe className="ifrm_style" title="News Opened" src={newsPaper} frameborder="1"></iframe>
+            </Modal> */}
         </main>
     );
 };
