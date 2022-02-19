@@ -1,5 +1,10 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { Col, Container, Row } from 'react-bootstrap';
 import Navigation from './Components/Navigation/Navigation';
 import Main from './Components/Main/Main';

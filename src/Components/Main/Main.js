@@ -4,7 +4,6 @@ import NewsCard from '../NewsCard/NewsCard';
 import './Main.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import Modal from 'react-bootstrap/Modal';
 import { Dropdown, Spinner } from 'react-bootstrap';
 import useMainhooks from '../hooks/useMainhooks';
 
@@ -12,8 +11,6 @@ const Main = (props) => {
     const toggle = props.toggle;
     const { news, setUrl, setNews, loading, pagination, setPagination, range, setRange, newsPaper } = useMainhooks();
     const [limit, setLimit] = useState(5);
-    // const [pagination, setPagination] = useState(0);
-    // const [show, setShow] = useState(false);
 
     const handleDelete = (idvalue) => {
         const newArrey = [...news]
@@ -47,15 +44,6 @@ const Main = (props) => {
             setRange(range + limit)
         }
     }
-
-    // const handleModal = e => {
-    //     if(show){
-    //         setShow(false)
-    //     } else{
-    //         setShow(true)
-    //     }
-    // }
-
 
     if(loading){
         return(
@@ -99,15 +87,6 @@ const Main = (props) => {
             <span className="dot">{parseInt(pagination+1)}</span>
             <FontAwesomeIcon className={pagination===news?.length-limit?'pagination_icon_false':''} onClick={increaseRight} icon={faAngleRight} />
         </div>
-            {/* <Modal
-                show={show}
-                size="lg"
-                aria-labelledby="contained-modal-title-vcenter"
-                onHide={handleModal}
-                centered
-                >
-                <iframe className="ifrm_style" title="News Opened" src={newsPaper} frameborder="1"></iframe>
-            </Modal> */}
         </main>
     );
 };

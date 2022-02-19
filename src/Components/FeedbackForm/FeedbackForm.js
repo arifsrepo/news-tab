@@ -4,13 +4,17 @@ import validator from 'validator';
 import { useState } from 'react';
 import Rating from 'react-rating';
 import { useEffect } from 'react';
+import useMainhooks from '../hooks/useMainhooks';
+import { Spinner } from 'react-bootstrap';
 
 const FeedbackForm = () => {
+    const { setShowRatings } = useMainhooks();
     const [user, setUser] = useState({});
     const [country, setCountry] = useState([]);
     const [invalid, setInvalid] = useState(false);
     const [rate, setRate] = useState(0);
     const [search, setSearch] = useState('');
+    const [spiner, setSpiner] = useState(false)
     let warning = {
         color:'black'
     }
@@ -33,9 +37,6 @@ const FeedbackForm = () => {
         if(!invalid){
             const newdata = {...user};
             newdata[keyfield] = value;
-            if(rate){
-                newdata['ratings'] = rate;
-            }
             setUser(newdata);
         }
     }
@@ -49,7 +50,22 @@ const FeedbackForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log(user)
+        const newData = {...user}
+        newData['ratings'] = rate;
+        setSpiner(true)
+        fetch('http://localhost:5000/ratings',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(newData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            data?.insertedId?setShowRatings(true):setShowRatings(true);
+            e.target.reset();
+            setSpiner(false)
+        })
     }
 
 
@@ -101,7 +117,12 @@ const FeedbackForm = () => {
                             }
                             >
                         </Rating>
-                        <button type="submit" className="formsubmit_button"><b>Submit Feedback</b></button>
+                        <div className="dflexer_submit">
+                            <button type="submit" className="formsubmit_button"><b>Submit Feedback</b></button>  
+                            {
+                                spiner?<Spinner animation="grow" variant="success" />:''
+                            }
+                        </div>
                     </div>
                 </form>
             </div>
