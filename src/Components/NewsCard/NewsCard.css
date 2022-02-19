@@ -1,0 +1,102 @@
+.news_card_list{
+    height: 70px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 20px 0px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    display: flex;
+    max-width: 580px;
+    cursor:pointer;
+}
+
+.news_card_card{
+    height: 200px;
+    width: 180px;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    cursor:pointer;
+    border-radius: 5px;
+}
+
+.news_card_list_img{
+    font-size: 30px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.news_card_card_img{
+    display: none;
+}
+
+.news_card_list_text{
+    padding: 10px;
+}
+
+.news_card_list_text p{
+    font-size: 14px;
+    margin: 0;
+    text-align: left;
+}
+
+.card_img{
+    max-height: 100px;
+    min-height: 80px;
+    overflow: hidden;
+}
+
+.card_img_list_view{
+    display: none;
+}
+
+.news_msg{
+  max-width: 500px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-align: left;
+}
+
+.news_card_msg{
+    
+}
+
+.news_card_list_delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.news_card_card_delete{
+    
+}
+
+.delete_dot {
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    color: red;
+    cursor: pointer;
+    margin-right: -60px;
+  }
+
+.delete_dot_card{
+    height: 25px;
+    width: 100%;
+    border-radius: 50%;
+    color: red;
+    cursor: pointer;
+    margin-top: -185px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fleser{
+    display: flex;
+}

@@ -1,0 +1,73 @@
+.main_div{
+    /* background-image: linear-gradient(#ebf2f7,#f8fcff); */
+    min-height: 600px;
+    border-radius: 25px;
+    padding: 30px 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.card_holder_card{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card_holder_list{
+  
+}
+
+.pagination{
+    height: 40px;
+    position: relative;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    margin: 0px 10px;
+  }
+
+  .big_dot{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .pagination_icon_false{
+    display: none;
+  }
+
+  .ifrm_style{
+    min-height: 500px;
+    min-width: 600px;
+  }
+
+  .dropdown_div{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .spiner_holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+  }
