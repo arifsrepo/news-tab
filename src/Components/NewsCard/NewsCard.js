@@ -14,6 +14,7 @@ const NewsCard = (props) => {
                     <FontAwesomeIcon icon={faUserCircle} />
                 </div>
                 <div className={toggle?'news_card_msg':'news_card_list_text'}>
+                    <p>{props.news.id}</p>
                     <h6 className="news_msg">{props.news.title}</h6>
                     <p className="news_msg">{props.news.content?props.news.content:props.news.body}</p>
                     <p>{props.news.publishedAt?props.news.publishedAt:'Time '}</p>

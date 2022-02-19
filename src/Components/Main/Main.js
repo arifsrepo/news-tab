@@ -10,10 +10,9 @@ import useMainhooks from '../hooks/useMainhooks';
 
 const Main = (props) => {
     const toggle = props.toggle;
-    const { news, setUrl, setNews, loading } = useMainhooks();
-    const [range, setRange] = useState(0);
+    const { news, setUrl, setNews, loading, pagination, setPagination, range, setRange } = useMainhooks();
     const [limit, setLimit] = useState(5);
-    const [pagination, setPagination] = useState(0);
+    // const [pagination, setPagination] = useState(0);
     const [show, setShow] = useState(false);
 
     const handleDelete = (idvalue) => {
@@ -37,16 +36,15 @@ const Main = (props) => {
     }
 
     const increaseLeft = () => {
-        if(range > limit-1){
-            setRange(range-limit);
-            setPagination(range/5);
-        }
+        const newRange = range-limit;
+        setRange(newRange);
+        setPagination(pagination-1);
     }
 
     const increaseRight = () => {
         if(range < news.length-limit){
-            setRange(range+limit);
-            setPagination(range/5);
+            setPagination(pagination + 1)
+            setRange(range + limit)
         }
     }
 
@@ -58,7 +56,6 @@ const Main = (props) => {
         }
     }
 
-    console.log(news)
 
     if(loading){
         return(
@@ -97,10 +94,10 @@ const Main = (props) => {
         </div>
         <div className="pagination">
             <FontAwesomeIcon className={pagination>0?'':'pagination_icon_false'} onClick={increaseLeft} icon={faAngleLeft} />
-            <span  className={pagination>0?'dot':'pagination_icon_false'}>{parseInt(pagination-1)}</span>
-            <span class="dot big_dot">{parseInt(pagination)}</span>
-            <span class="dot">{parseInt(pagination+1)}</span>
-            <FontAwesomeIcon onClick={increaseRight} icon={faAngleRight} />
+            <span className={pagination>0?'dot':'pagination_icon_false'}>{parseInt(pagination-1)}</span>
+            <span className="dot big_dot">{parseInt(pagination)}</span>
+            <span className="dot">{parseInt(pagination+1)}</span>
+            <FontAwesomeIcon className={pagination===news?.length-limit?'pagination_icon_false':''} onClick={increaseRight} icon={faAngleRight} />
         </div>
             <Modal
                 show={show}
