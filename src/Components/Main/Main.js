@@ -5,11 +5,11 @@ import './Main.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { Dropdown, Spinner } from 'react-bootstrap';
-import useMainhooks from '../hooks/useMainhooks';
+import useAuth from '../hooks/useAuth';
 
 const Main = (props) => {
     const toggle = props.toggle;
-    const { news, setUrl, setNews, loading, pagination, setPagination, range, setRange, newsPaper } = useMainhooks();
+    const { news, setUrl, setNews, loading, pagination, setPagination, range, setRange, newsPaper } = useAuth();
     const [limit, setLimit] = useState(5);
 
     const handleDelete = (idvalue) => {

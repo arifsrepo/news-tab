@@ -3,12 +3,12 @@ import './Navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faList, faRectangleList } from '@fortawesome/free-solid-svg-icons';
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
-import useMainhooks from '../hooks/useMainhooks';
 import Ratings from '../Ratings/Ratings';
 import { Route, Router } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 
 const Navigation = (props) => {
-    const { toggleFeedback, setToggleFeedback, showRatings } = useMainhooks()
+    const { toggleFeedback, setToggleFeedback, showRatings } = useAuth();
     const toggle = props.toggle;
     const setToggle = props.setToggle;
 

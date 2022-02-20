@@ -4,11 +4,11 @@ import validator from 'validator';
 import { useState } from 'react';
 import Rating from 'react-rating';
 import { useEffect } from 'react';
-import useMainhooks from '../hooks/useMainhooks';
 import { Spinner } from 'react-bootstrap';
+import useAuth from '../hooks/useAuth';
 
 const FeedbackForm = () => {
-    const { setShowRatings } = useMainhooks();
+    const { setShowRatings } = useAuth();
     const [user, setUser] = useState({});
     const [country, setCountry] = useState([]);
     const [invalid, setInvalid] = useState(false);
@@ -53,7 +53,7 @@ const FeedbackForm = () => {
         const newData = {...user}
         newData['ratings'] = rate;
         setSpiner(true)
-        fetch('http://localhost:5000/ratings',{
+        fetch('https://secure-sierra-89162.herokuapp.com/ratings',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

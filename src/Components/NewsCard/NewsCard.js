@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './NewsCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
-import useMainhooks from '../hooks/useMainhooks';
 import { Modal } from 'react-bootstrap';
 
 const NewsCard = (props) => {
